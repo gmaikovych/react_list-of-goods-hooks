@@ -26,7 +26,7 @@ export const App: React.FC = () => {
   const [originalGoods] = useState(goodsFromServer);
   const [sortField, setSortField] = useState<SortType>(SortType.None);
   const [reversed, setReversed] = useState(false);
-  const sortedGoods = [...originalGoods];
+  let sortedGoods = [...originalGoods];
 
   switch (sortField) {
     case SortType.Alphabetically:
@@ -80,6 +80,7 @@ export const App: React.FC = () => {
             onClick={() => {
               setReversed(false);
               setSortField(SortType.None);
+              sortedGoods = [...originalGoods];
             }}
             type="button"
             className="button is-danger is-light"
