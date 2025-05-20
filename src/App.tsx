@@ -23,9 +23,10 @@ enum SortType {
 }
 
 export const App: React.FC = () => {
+  const [originalGoods] = useState(goodsFromServer);
   const [sortField, setSortField] = useState<SortType>(SortType.None);
   const [reversed, setReversed] = useState(false);
-  const sortedGoods = [...goodsFromServer];
+  const sortedGoods = [...originalGoods];
 
   switch (sortField) {
     case SortType.Alphabetically:
